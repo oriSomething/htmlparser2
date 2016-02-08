@@ -1,0 +1,21 @@
+{
+  "name": "Implicit <a> close tags",
+  "options": {},
+  "html": "<div><a href='/a'>x<a href='/b'>y</a>z</a>z</div>",
+  "expected": [
+    { "event": "opentagname", "data": [ "div" ] },
+    { "event": "opentag", "data": [ "div", {} ] },
+    { "event": "opentagname", "data": [ "a" ] },
+    { "event": "attribute", "data": [ "href", "/a" ] },
+    { "event": "opentag", "data": [ "a", { "href": "/a" } ] },
+    { "event": "text", "data": [ "x" ] },
+    { "event": "closetag", "data": [ "a" ] },
+    { "event": "opentagname", "data": [ "a" ] },
+    { "event": "attribute", "data": [ "href", "/b" ] },
+    { "event": "opentag", "data": [ "a", { "href": "/b" } ] },
+    { "event": "text", "data": [ "y" ] },
+    { "event": "closetag", "data": [ "a" ] },
+    { "event": "text", "data": [ "zz" ] },
+    { "event": "closetag", "data": [ "div" ] }
+  ]
+}
